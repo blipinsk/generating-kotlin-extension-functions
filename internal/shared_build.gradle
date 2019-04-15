@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.bartoszlipinski.demo"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        debug.java.srcDirs += 'src/debug/kotlin'
+        release.java.srcDirs += 'src/release/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+
+        // For kapt stubs
+        main.java.srcDirs += [file("$buildDir/generated/source/kapt/main")]
+        debug.java.srcDirs += [file("$buildDir/generated/source/kapt/debug")]
+        release.java.srcDirs += [file("$buildDir/generated/source/kapt/release")]
+        test.java.srcDirs += [file("$buildDir/generated/source/kapt/test")]
+
+        // For kotlin code gen during kapt
+        main.java.srcDirs += [file("$buildDir/generated/source/kaptKotlin/main")]
+        debug.java.srcDirs += [file("$buildDir/generated/source/kaptKotlin/debug")]
+        release.java.srcDirs += [file("$buildDir/generated/source/kaptKotlin/release")]
+        test.java.srcDirs += [file("$buildDir/generated/source/kaptKotlin/test")]
+    }
+}
+
+repositories {
+    maven { url 'https://dl.bintray.com/blipinsk/maven/' }
+}
+
+dependencies {
+    implementation project(":internal")
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+
+    kapt 'com.bartoszlipinski:butterknife-ktx-compiler:0.2.0'
+    implementation 'com.bartoszlipinski:butterknife-ktx:0.2.0'
+
+    kapt 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.jakewharton:butterknife:8.8.1'
+}

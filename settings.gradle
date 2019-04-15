@@ -1,0 +1,1 @@
+include ':demo', ':internal', ':demo-java', ':demo-static-resolution'
