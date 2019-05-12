@@ -5,7 +5,7 @@ Code examples from my 2018/2019 tech talk
 ## Presented
 
 * [DevFest Wrocław 2018/10/27](https://www.youtube.com/watch?v=5WzOxMHS8sU)
-* Droidcon Italy 2019/04/05
+* [Droidcon Italy 2019/04/05](https://www.youtube.com/watch?v=mseyzW6bZqA) (_no sound, no animations_ :cry:)
 * Toast #23 Wrocław 2019/04/11
 
 ## Links
